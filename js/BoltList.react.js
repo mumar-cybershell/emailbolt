@@ -65,6 +65,7 @@ var BoltList = React.createClass({
 
   _refresh:function() {
     this.refreshQueries('items');
+    //cats
   },
 
   // A Create mutation takes a className and a set of new attributes
