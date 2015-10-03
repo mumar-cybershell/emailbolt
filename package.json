@@ -4,7 +4,8 @@
     "description": "A sample Node.js app using Express 4",
     "main": "index.js",
     "scripts": {
-        "start": "node index.js && watchify -o js/bundle.js -v -d js/app.js"
+        "start": "watchify -o js/bundle.js -v -d js/app.js",
+        "start": "node index.js"
     },
     "dependencies": {
         "ejs": "2.3.3",

@@ -12,7 +12,7 @@ var Item = React.createClass({
     return (
       <tr onClick={this.copyToClipboard} key={bolt.id}>
         <td>{this.props.counter}</td>
-        <td>{bolt.text}</td>
+        <td>{bolt.text}@emailbolt.com</td>
         <td><i onClick={this.remove} className="fa fa-chain-broken pull-right"  style={{fontSize: 2 + 'em'}}></i></td>
       </tr>
 
