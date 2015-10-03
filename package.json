@@ -4,8 +4,8 @@
     "description": "A sample Node.js app using Express 4",
     "main": "index.js",
     "scripts": {
-        "start": "node index.js"
-        },
+        "start": "watchify -o js/bundle.js -v -d js/app.js"
+    },
     "dependencies": {
         "ejs": "2.3.3",
         "express": "4.13.3",
@@ -32,5 +32,12 @@
         "heroku",
         "express"
     ],
+    "browserify": {
+        "transform": [
+            ["reactify", {
+                "es6": true
+            }]
+        ]
+    },
     "license": "MIT"
 }

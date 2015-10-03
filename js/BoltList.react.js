@@ -36,16 +36,16 @@ var currentUser = Parse.User.current();
 
 //.equalTo("user",currentUser)
 
-export default class BoltList extends ParseComponent {
-  mixins: [ParseReact.Mixin]
+var BoltList = React.createClass({
+  mixins: [ParseReact.Mixin],
 
-  observe(props, state) {
+  observe: function(props, state) {
     return {
       items: new Parse.Query('BoltItem').ascending('createdAt')
     };
-  }
+  },
 
-  render() {
+  render:function() {
     // If a query is outstanding, this.props.queryPending will be true
     // We can use this to display a loading indicator
     return (
@@ -61,28 +61,31 @@ export default class BoltList extends ParseComponent {
         <BoltCreator className="col-sm-12" submit={this._createItem} />
       </div>
     );
-  }
+  },
 
-  _refresh() {
+  _refresh:function() {
     this.refreshQueries('items');
-  }
+  },
 
   // A Create mutation takes a className and a set of new attributes
-  _createItem(text) {
+  _createItem:function(text) {
     ParseReact.Mutation.Create('BoltItem', {
       text: text, user : currentUser
     }).dispatch();
-  }
+  },
 
   // A Set mutation takes an Id object and a set of attribute changes
-  _updateItem(id, text) {
+  _updateItem:function(id, text) {
     ParseReact.Mutation.Set(id, {
       text: text
     }).dispatch();
-  }
+  },
 
   // A Destroy mutation simply takes an Id object
-  _destroyItem(id) {
+  _destroyItem:function(id) {
     ParseReact.Mutation.Destroy(id).dispatch();
   }
-}
+});
+
+
+module.exports = BoltList;
