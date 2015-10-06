@@ -3,15 +3,28 @@
   "version": "0.1.5",
   "description": "A private email address created and destroyed on the fly",
   "main": "index.js",
+  "private": true,
+  "hexo": {
+    "version": "3.1.1"
+  },
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
     "ejs": "^2.3.1",
     "express": "~4.9.x",
-    "react": "^0.13.0",
+    "hexo": "^3.1.0",
+    "hexo-generator-archive": "^0.1.2",
+    "hexo-generator-category": "^0.1.2",
+    "hexo-generator-index": "^0.1.2",
+    "hexo-generator-tag": "^0.1.1",
+    "hexo-renderer-ejs": "^0.1.0",
+    "hexo-renderer-marked": "^0.2.4",
+    "hexo-renderer-stylus": "^0.3.0",
+    "hexo-server": "^0.1.2",
     "parse": "^1.6.0",
-    "parse-react": "^0.5.0"
+    "parse-react": "^0.5.0",
+    "react": "^0.13.0"
   },
   "devDependencies": {
     "babelify": "^6.3.0",
