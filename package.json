@@ -1,44 +1,51 @@
 {
-    "name": "node-js-getting-started",
-    "version": "0.1.5",
-    "description": "A sample Node.js app using Express 4",
-    "main": "index.js",
-    "scripts": {
-        "start": "watchify -o js/bundle.js -v -d js/app.js",
-        "start": "node index.js"
-    },
-    "dependencies": {
-        "ejs": "2.3.3",
-        "express": "4.13.3",
-        "react": "^0.13.0",
-        "parse": "^1.6.0",
-        "parse-react": "^0.5.0",
-        "ejs": "^2.3.1",
-        "express": "~4.9.x"
-    },
-    "devDependencies": {
-        "babelify": "^6.0.2",
-        "browserify": "^6.2.0",
-        "watchify": "^2.1.1"
-    },
-    "engines": {
-        "node": "0.12.7"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/heroku/node-js-getting-started"
-    },
-    "keywords": [
-        "node",
-        "heroku",
-        "express"
-    ],
-    "browserify": {
-        "transform": [
-            ["reactify", {
-                "es6": true
-            }]
-        ]
-    },
-    "license": "MIT"
+  "name": "EmailBolt",
+  "version": "0.1.5",
+  "description": "A private email address created and destroyed on the fly",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "ejs": "^2.3.1",
+    "express": "~4.9.x",
+    "react": "^0.13.0",
+    "parse": "^1.6.0",
+    "parse-react": "^0.5.0"
+  },
+  "devDependencies": {
+    "babelify": "^6.3.0",
+    "browserify": "^6.2.0",
+    "grunt": "~0.4.5",
+    "grunt-browserify": "^3.8.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-nodeunit": "~0.4.1",
+    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-express-server": "^0.5.1",
+    "watchify": "^2.1.1"
+  },
+  "engines": {
+    "node": "0.12.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heroku/node-js-getting-started"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "browserify": {
+    "transform": [
+      [
+        "reactify",
+        {
+          "es6": true
+        }
+      ]
+    ]
+  },
+  "license": "MIT"
 }

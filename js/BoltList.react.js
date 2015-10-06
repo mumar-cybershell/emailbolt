@@ -17,7 +17,6 @@
  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  *  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  *  IN THE SOFTWARE.
- *
  */
 
 var Parse = require('parse').Parse;
@@ -68,7 +67,7 @@ var BoltList = React.createClass({
     //cats
   },
 
-  // A Create mutation takes a className and a set of new attributes
+  // A Create mutation takes className and a set of new attributes
   _createItem:function(text) {
     ParseReact.Mutation.Create('BoltItem', {
       text: text, user : currentUser
