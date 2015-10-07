@@ -74,7 +74,7 @@ Parse.Cloud.afterSave("BoltItem", function(request) {
     body: {
         priority: 50,
         description: 'Target: ' + target,
-        expression: 'match_recipient("' + target + '@emailbolt.com")',
+        expression: 'match_recipient("' + target + '@boltaddress.com")',
         action: "forward('" + ownerEmail + "')"
     }
 	})
@@ -123,8 +123,8 @@ Parse.Cloud.afterSave(Parse.User, function(request) {
     method: "POST",
     url: "https://api:" + "key-1ytwinacpa11k-yg2e8xtjz5dy2myxk4" + "@api.mailgun.net/v2/" + "emailbolt.com" + "/messages",
     body: {
-        //to: request.object.get('email'),
-        to: "info@emailbolt.com",
+        to: request.object.get('email'),
+        //to: "info@emailbolt.com",
         from: "info@emailbolt.com",
         subject: "EmailBolt Signup",
         text: "This email has been used to signup at EmailBolt.com with "

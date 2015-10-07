@@ -540,7 +540,7 @@ var Item = React.createClass({displayName: "Item",
     return (
       React.createElement("tr", {onClick: this.copyToClipboard, key: bolt.id}, 
         React.createElement("td", null, this.props.counter), 
-        React.createElement("td", null, bolt.text, "@emailbolt.com"), 
+        React.createElement("td", null, bolt.text, "@boltaddress.com"), 
         React.createElement("td", null, React.createElement("i", {onClick: this.remove, className: "fa fa-chain-broken pull-right", style: {fontSize: 2 + 'em'}}))
       )
 
@@ -4233,7 +4233,7 @@ var config = {
   IS_NODE: typeof process !== 'undefined' && !!process.versions && !!process.versions.node,
   REQUEST_ATTEMPT_LIMIT: 5,
   SERVER_URL: 'https://api.parse.com',
-  VERSION: '1.6.4',
+  VERSION: '1.6.5',
   APPLICATION_ID: null,
   JAVASCRIPT_KEY: null,
   MASTER_KEY: null,
@@ -7430,6 +7430,8 @@ var ParseObject = (function () {
           newOps[k] = (0, _ParseOp.opFromJSON)(changes[k]);
         } else if (k === 'objectId' || k === 'id') {
           this.id = changes[k];
+        } else if (k === 'ACL' && typeof changes[k] === 'object' && !(changes[k] instanceof _ParseACL2['default'])) {
+          newOps[k] = new _ParseOp.SetOp(new _ParseACL2['default'](changes[k]));
         } else {
           newOps[k] = new _ParseOp.SetOp(changes[k]);
         }
@@ -8139,6 +8141,9 @@ var ParseObject = (function () {
         }
       }
       o._finishFetch(otherAttributes);
+      if (json.objectId) {
+        o._setExisted(true);
+      }
       return o;
     }
 
@@ -9730,7 +9735,11 @@ var ParseQuery = (function () {
     _classCallCheck(this, ParseQuery);
 
     if (typeof objectClass === 'string') {
-      this.className = objectClass;
+      if (objectClass === 'User' && _CoreManager2['default'].get('PERFORM_USER_REWRITE')) {
+        this.className = '_User';
+      } else {
+        this.className = objectClass;
+      }
     } else if (objectClass instanceof _ParseObject2['default']) {
       this.className = objectClass.className;
     } else if (typeof objectClass === 'function') {
@@ -11400,6 +11409,8 @@ var ParseUser = (function (_ParseObject) {
             }
             _this._linkWith(provider, opts).then(function () {
               promise.resolve(_this);
+            }, function (error) {
+              promise.reject(error);
             });
           },
           error: function error(provider, _error) {
