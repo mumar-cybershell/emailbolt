@@ -97,6 +97,9 @@ var Login = React.createClass({
         var email = this.state.email;
         var password = this.state.password;
         var value = "cake";
+
+        //<input className="form-control col-sm-12 btn btn-warning" value="Create Account" onClick={this.createAccount} />
+
         return (
 
           <form className="col-sm-8 col-sm-offset-2 form-horizontal" onKeyDown={this.onKeyDown}>
@@ -106,7 +109,6 @@ var Login = React.createClass({
           <input className="form-control btn btn-success" value="Login" onClick={this.handleSubmit} />
           </div>
           <div className="form-group">
-          <input className="form-control col-sm-12 btn btn-warning" value="Create Account" onClick={this.createAccount} />
           </div>
           </form>
 

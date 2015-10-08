@@ -744,6 +744,9 @@ var Login = React.createClass({displayName: "Login",
         var email = this.state.email;
         var password = this.state.password;
         var value = "cake";
+
+        //<input className="form-control col-sm-12 btn btn-warning" value="Create Account" onClick={this.createAccount} />
+
         return (
 
           React.createElement("form", {className: "col-sm-8 col-sm-offset-2 form-horizontal", onKeyDown: this.onKeyDown}, 
@@ -752,8 +755,7 @@ var Login = React.createClass({displayName: "Login",
           React.createElement("input", {placeholder: "Password", className: "form-control", type: "password", value: password, onChange: this.handleChangePassword}), 
           React.createElement("input", {className: "form-control btn btn-success", value: "Login", onClick: this.handleSubmit})
           ), 
-          React.createElement("div", {className: "form-group"}, 
-          React.createElement("input", {className: "form-control col-sm-12 btn btn-warning", value: "Create Account", onClick: this.createAccount})
+          React.createElement("div", {className: "form-group"}
           )
           )
 
@@ -896,7 +898,6 @@ module.exports = UserProfile;
 var React = require('react');
 var Parse = require('parse');
 //var Parse = require('parse/node');
-
 // Insert your app's keys here:
 Parse.initialize('Jq3E7ktrtc4o7sEVp5zgAebVFUFhN6qjLt8phTYi', 'skMFfxT10KjmpvYl91qQmRQGJEhHfDuzAP8PktvU');
 
